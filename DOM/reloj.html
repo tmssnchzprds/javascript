@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript,</title>
+
+</head>
+
+<body>
+<input type="button" id="pincha" value="pincha">
+<input type="button" id="para" value="para" onClick="para()">
+<span id="reloj"></span>
+<script type="text/javascript">
+var idProceso=null;
+function para()
+{
+	clearTimeout(idProceso);
+	}
+function arranca()
+{
+	var FechayHora=new Date();
+	var hora=FechayHora.getHours();
+	var minutos=FechayHora.getMinutes();
+	var segundos=FechayHora.getSeconds();
+	if (segundos<10) {segundos="0"+segundos;}
+	var objReloj=document.getElementById("reloj");
+	objReloj.innerHTML="<b>"+hora+":"+minutos+":"+segundos+"</b>";
+	}
+function iniciaTiempo()
+{
+	idProceso=setInterval(arranca,1000);
+	}
+	document.getElementById("pincha").addEventListener("click",iniciaTiempo);
+</script>       
+        	
+</body>
+</html>

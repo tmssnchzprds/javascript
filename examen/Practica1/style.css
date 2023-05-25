@@ -1,0 +1,17 @@
+table {
+	border: 1px solid #007030;
+	}
+td:nth-child(1) {
+	background-color:#FFB482;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#ffffff;
+	}
+.input {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	font-style:normal;
+	background-color:#FFFFFF;
+	color:#EF6201;
+	}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ejercicios</title>
+</head>
+<script type="text/javascript">
+var sueldos=new Array(5);
+
+function Cargar()
+{
+	for(i=0;i<sueldos.length;i++)
+	{
+		sueldos[i]=parseInt(prompt("Introduzca el sueldo del Empleado "+(i+1)));
+	}
+	document.getElementById("calcular").disabled=false;
+}
+
+function calcularGastos()
+{
+	var suma=0;
+	for(i=0;i<sueldos.length;i++)
+		suma+=parseInt(sueldos[i]);
+	if(suma>=0)
+	alert("El total de gastos en sueldos es : "+suma);
+
+		
+}
+</script>
+<body>
+<input type="button" value="Cargar" onClick="Cargar();">&nbsp;
+<input type="button" value="Calcular" onClick="calcularGastos();" id="calcular" disabled>
+
+</body>
+</html>

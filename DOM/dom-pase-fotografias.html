@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dom Pase fotografias</title>
+<style type="text/css">
+#menu {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+#menu li {
+	/*float:left;*/
+	display:inline-block;
+
+}
+
+#menu li a:link,#menu li a:visited {
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	/*background-color:#090;*/
+	background-color:#333;
+	color:white;
+	width:100px;
+	padding:5px;
+	
+	/*padding-bottom:4px;
+	padding-top:2px;*/
+	/*text-shadow:0 1px 0 #333;*/
+
+	
+}
+#menu li a:hover,#menu li a:active {
+	/*background-color:#4e4e4e;*/
+	color:#000;
+	background-color:#FFF;
+		
+}
+
+</style>
+
+</head>
+<body>
+<p> Pase de fotos </p>
+<img src="1.jpg" id="visor" width="600" height="300">
+<div id="titulo"></div>
+<br>
+	<ul id="menu">
+	<li><a href="#" onClick="primera()">Primera</a></li>
+    <li><a href="#" onClick="anterior()">Anterior</a></li>
+    <li><a href="#" onClick="siguiente()">Siguiente</a></li>
+    <li><a href="#" onClick="ultima()">Ultima</a></li>
+    <li><a href="#" onClick="automatic()" id="auto">Automatico</a></li>
+</ul>       
+<script>
+var imagenes=["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"];
+var indice=0;
+var objVisor=document.getElementById("visor");
+var objAuto=document.getElementById("auto");
+var tope=imagenes.length-1;
+var idProceso=null;
+function siguiente() {
+	if (indice<tope){indice++;}	else {indice=0;}
+	objVisor.src=imagenes[indice];
+	}
+function anterior() {
+	if (indice>0){indice--;} else {indice=tope;}
+	objVisor.src=imagenes[indice];
+	}
+function primera() {
+	indice=0;
+	objVisor.src=imagenes[indice];
+	}
+function ultima() {
+	indice=tope;
+	objVisor.src=imagenes[indice];
+	}
+function automatic()
+{
+	clearTimeout(idProceso);
+	idProceso=setInterval(siguiente,1000);
+	objAuto.innerHTML="Parar";
+	objAuto.onclick=parar;
+	}
+function parar() {
+	clearTimeout(idProceso);
+	objAuto.innerHTML="Automatico";
+	objAuto.onclick=automatic;
+	}
+</script>
+</body>
+</html>

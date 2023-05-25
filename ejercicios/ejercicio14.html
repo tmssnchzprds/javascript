@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ejercicios</title>
+</head>
+
+<body>
+<form name="formulario">
+Procesador: <select name="procesador" id="procesador" onChange="cambia()">
+<option value="0">Intel I3</option>
+<option value="1">Intel I5</option>
+<option value="2">Intel I7</option>
+</select>
+<input type="text" name="precioProcesador" id="precioProcesador" value="200" readonly disabled>€
+<br>Monitor: <select name="monitor" id="monitor" onChange="cambia()">
+<option value="0">Samsung 20'</option>
+<option value="1">Samsung 22'</option>
+<option value="2">Samsung 26'</option>
+</select>
+<input type="text" name="precioMonitor" id="precioMonitor" value="250" readonly disabled>€
+<br>Disco Duro: <select name="discoDuro" id="discoDuro" onChange="cambia()">
+<option value="0">500 Gb</option>
+<option value="1">1 Tb</option>
+<option value="2">3 Tb</option>
+</select>
+<input type="text" name="precioDiscoDuro" id="precioDiscoDuro" value="100" readonly disabled>€
+<br>
+<input type="button" onClick="calcular()" value="Calcular">
+<input type="text" name="precioTotal" id="precioTotal" readonly disabled>€
+</form>
+<script type="text/javascript">
+function cambia(){
+	var procesador=document.getElementById("procesador").value;
+	var monitor=document.getElementById("monitor").value;
+	var discoDuro=document.getElementById("discoDuro").value;
+	var precioProcesador=new Array ("200","300","500");
+	var precioMonitor=new Array ("250","350","550");
+	var precioDiscoDuro=new Array ("100","200","500");
+	document.getElementById("precioProcesador").value=precioProcesador[procesador];
+	document.getElementById("precioMonitor").value=precioMonitor[monitor];
+	document.getElementById("precioDiscoDuro").value=precioDiscoDuro[discoDuro];
+	};
+function calcular(){
+	document.getElementById("precioTotal").value=parseInt(document.getElementById("precioProcesador").value)+parseInt(document.getElementById("precioMonitor").value)+parseInt(document.getElementById("precioDiscoDuro").value);
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript, for</title>
+<script type="text/javascript">
+ //PRIMERA FORMA
+	var coches=new Array ("mercedes","audi","volvo","bmv");
+for (var elemento in coches)
+	{
+		alert(coches[elemento]);
+		}
+	var persona={nombre:"pepe", edad:28, provincia:"Madrid"};
+	alert("El nombre de la persona es"+persona.nombre);
+	alert("La edad de la persona es"+persona["edad"]);
+	var producto1={
+		nombre:"Jamon Bellota",
+		precio:300,
+		foto:"jamonbellota.jpg"
+	}
+	for (var propiedad in producto1)
+	{
+		alert("La propiedad es "+propiedad+" y el valor es "+producto1[propiedad]);
+		}
+	var productos=[
+		{
+		nombre:"Jamon Bellota",
+		precio:300,
+		foto:"jamonbellota.jpg"
+		},
+		{
+		nombre:"tablet ipad",
+		precio:400,
+		foto:"tablet.jpg"
+		},
+ 		{
+		nombre:"gafas sol",
+		precio:30,
+		foto:"gafas.jpg"
+		},
+	
+	]	
+		
+		
+</script>
+</head>
+
+<body>
+	<table border="1" width="80%">
+    	<tr>
+        	<th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        <tr>
+        <script type="text/javascript">
+		document.write("<td>"+producto1.nombre+"</td>	<td>"+producto1.precio+"</td> <td><img src='"+producto1.foto+"'></td>");
+        </script>
+        </tr>
+        1. - PRIMERA FORMA
+    </table>
+    	<table border="1" width="80%">
+    	<tr>
+        	<th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        
+        <script type="text/javascript">
+		for (var propiedad in productos)
+		{
+		document.write("<tr><td>"+productos[propiedad].nombre+"</td>	<td>"+productos[propiedad].precio+"</td> <td><img src='"+productos[propiedad].foto+"'></td></tr>");
+		}
+        </script>
+        
+    </table>
+            2. - SEGUNDA FORMA
+    </table>
+    	<table border="1" width="80%">
+    	<tr>
+        	<th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        
+        <script type="text/javascript">
+		for (var indice=0;indice<=productos.length-1;indice++)
+		{
+		document.write("<tr><td>"+productos[indice].nombre+"</td>	<td>"+productos[indice].precio+"</td> <td><img src='"+productos[indice].foto+"'></td></tr>");
+		}
+        </script>
+        
+    </table>
+            3. - TERCERA FORMA
+    </table>
+    	<table border="1" width="80%">
+    	<tr>
+        	<th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        
+        <script type="text/javascript">
+		for (var elemento in productos)
+		{
+		document.write("<tr>");
+		for (var propiedad in productos[elemento])
+		{
+			document.write("<td>"+productos;
+			}
+		document.write("</tr>");
+		}
+        </script>
+        
+    </table>
+</body>
+</html>

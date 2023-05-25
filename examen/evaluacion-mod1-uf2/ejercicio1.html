@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MOD1 UF2 Ejercicio 1</title>
+
+<style type="text/css">
+.error{
+		color:red;
+		font-size:14px;
+      }
+</style>
+
+
+
+
+
+<script type="text/javascript">
+// JAVASCRIPT A PELO , nativo
+
+function Es_Vacio(s)
+{
+	for (i = 0; i < s.length; i++)
+	{
+		c = s.charAt(i);
+		if ((c != ' ') && (c != '\n') && (c != '\t')) return false;
+	}
+	return true;
+}
+	
+function Es_Num(n)
+{
+	for (i = 0; i < n.length; i++)
+	{
+		var c = n.charAt(i);
+		if (!(c >= "0" &&  c <= "9")) return false;
+	}
+	return true;
+	
+}
+
+function validarFormulario() {
+        
+        var hab=document.getElementById("habitaciones").value;
+        var pmin=document.getElementById("minimo").value;
+        var pmax=document.getElementById("maximo").value;
+       
+        var capaError1=document.getElementById("mensajeError1");
+        var capaError2=document.getElementById("mensajeError2");
+        var capaError3=document.getElementById("mensajeError3");
+        
+        if (Es_Vacio(hab)) { 
+            capaError1.innerHTML="las habitaciones no pueden estar vacias";
+            return false;
+        }
+        if (Es_Vacio(pmin)) { 
+            capaError2.innerHTML="El precio minimo no pueden estar vacio";
+            return false;
+        }
+        if (Es_Vacio(pmax)) { 
+            capaError3.innerHTML="El precio maximo no pueden estar vacio";
+            return false;
+        }
+        
+        if (parseInt(hab)<1 || parseInt(hab)>6)
+        {
+            capaError1.innerHTML="El numero de habitaciones debe estar comprendido entre 1 y 6 ";
+            return false;
+        }
+        
+        if (parseInt(pmin)<50000)
+        {
+            capaError2.innerHTML="El precio nimino no puede ser menor de 500000 €";
+            return false; 
+        } else if (parseInt(pmax)>600000)
+                {
+                    capaError3.innerHTML="El precio maximo  no puede superarar los 6000000 €";
+                    return false; 
+                }
+        return true;
+    
+}
+
+
+
+
+</script>
+
+
+
+</head>
+
+<body>
+<h2>MOD1 UF2 Ejercicio 1 </h2>
+<form id="formulario" name="formulario" action="recibe.php" method="post">
+	Selecciona una provincia:
+	<select id="provincia">
+        <option value="-1">(Seleccione una provicia)</option>
+    	<option value="3">ALICANTE</option>
+    	<option value="8">BARCELONA</option>
+    	<option value="29">MALAGA</option>
+   </select><br>
+   Número habitaciones:<input type="text" id="habitaciones" name="habitaciones" size="10">
+   <span id="mensajeError1" class="error"></span><br>
+    Precio mínimo:<input  type="text" id="minimo" name="minimo" size="6"> 
+    <span id="mensajeError2" class="error"></span><br>
+    Precio máximo: <input type="text" id="maximo" name="maximo" size="6">
+    <span id="mensajeError3" class="error"></span><br>
+    <input type="submit" value="Buscar" id="buscar" onclick="return validarFormulario()">
+    <input type="reset" value="Borrar">
+</form>	
+
+</body>
+</html>

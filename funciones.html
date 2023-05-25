@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript, for</title>
+<script type="text/javascript">
+	function ejemplo_funcion(nombre)
+	{
+		alert("Hola "+nombre);
+		}
+	function cuadrado (numero)
+	{
+		//var resultado=numero*numero;
+		//return resultado;
+		return numero*numero;
+		}
+		//var retorno=cuadrado(25);
+		//alert(retorno);
+		
+		function llamada_a_cuadrado()
+		{
+			var n=prompt("Dime el numero");
+			var calcula=cuadrado(n);
+			alert(calcula);
+			}
+		function calcular_iva(importe,tipoiva)
+		{
+			return (importe+(importe*tipoiva/100));
+		}
+		var importe=prompt("Dime el importe:");
+		parseInt(importe);
+		var tipoiva=prompt("Dime el IVA:");
+		parseInt(tipoiva);
+		if (importe=="" || tipoiva=="" || isNaN(importe) || isNaN(tipoiva) )
+		{
+			document.write("Atencion, el importe o el iva estan vacios o no es un numero");
+			}
+			else
+			{
+		document.write(calcular_iva(importe,tipoiva));
+			}
+</script>
+</head>
+
+<body onLoad="llamada_a_cuadrado();">
+<input type="button" onClick="ejemplo_funcion('pepe')">
+</body>
+</html>

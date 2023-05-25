@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript,</title>
+<script type="text/javascript">
+</script>
+</head>
+
+<body>
+	<h1>Primera forma de validar</h1>
+    <form name="formulario" action="recibe.php" onSubmit="return validacion1()">
+    	<input type="text" id="miCaja1" name="superCaja1" size="10" maxlength="15" style="color:blue;">
+        <span id="advertencia">No puede estar vacio y solo debe contener números</span>
+        <input type="submit" value="pulsa">
+        </form>
+        	<h1>Segunda forma de validar</h1>
+    <form name="formulario2" id="formulario2" action="recibe.php" onSubmit="return validacion1()">
+    	<input type="text" id="miCaja2" name="superCaja2" size="10" maxlength="15" style="color:blue;">
+        <span id="advertencia2">No puede estar vacio y solo debe contener números</span>
+        <a href="#" onClick="return validacion2()">Enviar</a>
+        </form>
+
+    <script type="text/javascript">
+	
+function Es_Vacio(s)
+{
+	for (i = 0; i < s.length; i++)
+	{
+		c = s.charAt(i);
+		if ((c != ' ') && (c != '\n') && (c != '\t')) return false;
+	}
+	return true;
+}
+	
+function Es_Num(n)
+{
+	for (i = 0; i < n.length; i++)
+	{
+		var c = n.charAt(i);
+		if (!(c >= "0" &&  c <= "9")) return false;
+	}
+	return true;
+	
+}
+
+
+function ValidarCorreo(Email)
+{
+	var OK=true;
+	if (Email!='' && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(Email)))
+		OK=false;
+	return OK;
+ }
+
+function validacion1 (){
+	var objCaja=document.getElementById("miCaja1");
+	var objAdvertencia=document.getElementById("advertencia");
+	var error=false;
+	if (Es_Vacio(objCaja.value))
+	{
+
+		objAdvertencia.innerHTML="No puede estar vacio";
+		objAdvertencia.style="color:red";
+		error=true;
+		}
+		if (!Es_Num(objCaja.value) && !error){
+	objAdvertencia.innerHTML="Solo puede contener numeros";
+		objAdvertencia.style="color:red";
+		error=true;
+			}
+			if (error)
+			{return false;
+				}
+				else
+				{return true;}
+	}
+	function validacion2 (){
+	var objCaja=document.getElementById("miCaja1");
+	var objAdvertencia=document.getElementById("advertencia");
+	var error=false;
+	if (Es_Vacio(objCaja.value))
+	{
+
+		objAdvertencia.innerHTML="No puede estar vacio";
+		objAdvertencia.style="color:red";
+		error=true;
+		}
+		if (!Es_Num(objCaja.value) && !error){
+	objAdvertencia.innerHTML="Solo puede contener numeros";
+		objAdvertencia.style="color:red";
+		error=true;
+			}
+			if (error==false)
+			{ document.getElementById("formulario2").submit();}
+	}
+</script>
+</body>
+</html>

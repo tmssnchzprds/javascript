@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prueba Practica 1 parte 2</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#habitaciones").change(function(){
+		var valor = $(this).val();
+		$("#nhabitaciones").val(valor);
+	});
+	$("#buscar").click(function(){
+		var valor = $("#tipologia").val();
+		if (valor==-1){
+			var conf=confirm("Has seleccionado todas las tipologias, ¿Desea continuar?");
+			if (conf==false){
+				$("#formulario").submit(function(e){
+					e.preventDefault();
+				});
+			};
+		};
+	});
+});
+</script>
+</head>
+
+<body>
+	<form name="formulario" id="formulario" action="recibe.php" method="get">
+		<table>
+ 		   	<tr>
+        		<th colspan="2">Datos de la búsqueda de inmuebles
+    	        </th>
+ 	       </tr>
+        	<tr>
+    	    	<td>Provincia:
+	            </td>
+        	    <td>
+                	<select name="provincia" class="input">
+                    	<option value="Badajoz">Badajoz</option>
+    					<option value="Caceres">Caceres</option>
+    				</select>
+    	        </td>
+	        </tr>
+        	<tr>
+    	    	<td>Tipologia:
+	            </td>
+            	<td>
+                	<select name="tipologia" id="tipologia" class="input">
+                    	<option value="-1">(Todas)</option>
+						<option value="Atico">Ático</option>
+    					<option value="Adosado">Adosado</option>
+                        <option value="Duplex">Duplex</option>
+    				</select>
+        	    </td>
+    	    </tr>
+	        <tr>
+        		<td>Habitaciones:
+    	        </td>
+	            <td>
+                	<select name="habitaciones" id="habitaciones" class="input">
+                    	<option value="1">1</option>
+						<option value="2">2</option>
+    					<option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+    				</select><input type="text" name="nhabitaciones" id="nhabitaciones" size="1" maxlength="1" value="1" disabled readonly>
+            	</td>
+        	</tr>
+    	    <tr>
+	        	<td>Precio mínimo:
+            	</td>
+        	    <td>
+                	<input type="text" name="preciominimo" size="10" maxlength="10" class="input">
+    	        </td>
+ 	       </tr>
+        	<tr>
+    	    	<td>Precio máximo:
+	            </td>
+        	    <td>
+                	<input type="text" name="preciomaximo" size="10" maxlength="10" class="input">
+    	        </td>
+	        </tr>
+            <tr>
+        		<td colspan="2"><input type="submit" name="buscar" value="Buscar" id="buscar">
+    	        </td>
+ 	       </tr>
+		</table>
+    </form>
+</body>
+</html>

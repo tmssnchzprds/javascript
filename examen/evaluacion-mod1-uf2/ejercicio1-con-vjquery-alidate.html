@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MOD1 UF2 Ejercicio 1</title>
+<script src="jquery-1.9.1.js" type="text/javascript"></script>
+<script src="jquery.validate.js" type="text/javascript"></script>
+<style type="text/css">
+.error{
+		color:red;
+		font-size:14px;
+      }
+</style>
+
+
+
+
+
+<script type="text/javascript">
+// version con jquery validate
+$(document).ready(function() {
+
+var reglas={ 
+            habitaciones:{required:true,digits:true,min:1,max:6},
+            minimo:{required:true,digits:true,min:50000,max:600000},
+            maximo:{required:true,digits:true,max:600000}
+           };
+
+var mensajes={
+               habitaciones:{
+                            required:"El numero de habitaciones es obligatorio",
+                            min:"Minimo 1 habitacion",
+                            max:"Maximo 5 habitaciones"
+                            },
+               minimo:{
+                            required:"El campo minimo es obligatorio",
+                            min:"Precio minimo 50000"
+                            },             
+               maximo:{
+                            required:"El campo maximo es obligatorio",
+                            max:"Precio maximo 600000"
+                            }             
+             };
+$("#formulario").validate({rules:reglas,messages:mensajes});
+
+});
+</script>
+
+
+
+</head>
+
+<body>
+<h2>MOD1 UF2 Ejercicio 1 </h2>
+<form id="formulario" name="formulario" action="recibe.php" method="post">
+	Selecciona una provincia:
+	<select id="provincia">
+        <option value="-1">(Seleccione una provicia)</option>
+    	<option value="3">ALICANTE</option>
+    	<option value="8">BARCELONA</option>
+    	<option value="29">MALAGA</option>
+   </select><br>
+   Número habitaciones:<input type="text" id="habitaciones" name="habitaciones" size="10">
+   <span id="mensajeError1" class="error"></span><br>
+    Precio mínimo:<input  type="text" id="minimo" name="minimo" size="6"> 
+    <span id="mensajeError2" class="error"></span><br>
+    Precio máximo: <input type="text" id="maximo" name="maximo" size="6">
+    <span id="mensajeError3" class="error"></span><br>
+    <input type="button" value="Buscar" id="buscar">
+    <input type="reset" value="Borrar">
+</form>	
+
+</body>
+</html>

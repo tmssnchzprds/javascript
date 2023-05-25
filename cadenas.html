@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript, for</title>
+<script type="text/javascript">
+	var cadena="El perro se llama toby y es muy bueno";
+	alert("Longitud: "+cadena.length);
+	alert("Posicion: "+cadena.indexOf("toby"));
+	alert("Que hay: "+cadena.chartAt(25));
+	alert("Cortar: "+cadena.substring(3,10));
+	alert("Limpiar cadena: "+cadena.trim());
+	alert("A mayusculas: "+cadena.toUpperCase());
+	alert("A minusculas: "+cadena.toLowerCase());
+	alert("Reemplazar: "+cadena.replace("toby","cotton"));
+	var array_cadena=cadena.split(" ");
+	for (var elemento in array_cadena)
+	{
+		alert(array_cadena[elemento]);
+		}
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

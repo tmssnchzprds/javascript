@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script type="text/javascript">
+//NOTACION CON FUNCIONES
+function Coche (c,p,t)
+{
+	this.marca="";
+	this.color=c;
+	this.potencia=p;
+	this.tipo=t;
+	this.acelerar=function() {
+		alert("estoy acelerando");};
+	this.frenar=function() {
+		alert("estoy frenando");};
+	this.info=function(){
+		//alert("Soy un"+this.marca);
+		return this.marca};
+	//this.getTipo=function() {return this.tipo};
+};
+
+//NOTACION TIPO JSON
+
+var coche1={
+	color:"rojo", potencia:120,tipo:"gasolina", marca:"seat", acelerar:function() { alert("acelero")}, info:function(){return this.marca;}
+	};
+
+function crearCoches() {
+	var objCoche1=new Coche("rojo",800,"gasolina");
+	objCoche1.marca="ferrari";
+	var objCoche2=new Coche("blanco",80,"diesel");
+	objCoche2.marca="seat";
+	var objCoche3=new Coche("verde",120,"diesel");
+	objCoche3.marca="opel";	
+
+	//alert(objCoche1.color);
+	objCoche1.acelerar();
+	objCoche1.frenar();
+	objCoche1.info();
+	var marcaCoche1=objCoche1.info();
+	alert(marcaCoche1);
+	
+	alert(objCoche1.info());
+	
+	objCoche2.info();
+	//alert(objCoche2.color);
+	alert (coche1.info());
+	coche1.acelerar();
+	alert(coche1.potencia);
+	};
+function cargaCoche(numerocoche){
+	var objMarca=document.getElementById("marca");
+	var objColor=document.getElementById("color");
+	var objPotencia=document.getElementById("potencia");
+	var objTipo=document.getElementById("tipo");
+	if (numerocoche==1)
+	{
+		var objCoche=new Coche("rojo",800,"gasolina");
+	objCoche.marca="ferrari";
+		}
+	if (numerocoche==2)
+	{
+			var objCoche=new Coche("blanco",80,"diesel");
+	objCoche.marca="seat";
+		}
+	if (numerocoche==3)
+	{
+			var objCoche=new Coche("verde",120,"diesel");
+	objCoche.marca="opel";	
+		}
+	objMarca.innerHTML=objCoche.marca;
+	objColor.innerHTML=objCoche.color;
+	objPotencia.innerHTML=objCoche.potencia;
+	objTipo.innerHTML=objCoche.tipo;
+	}
+</script>
+</head>
+
+<body>
+<input type="button" id="button" onClick="crearCoches()" value="pulsa">
+<input type="button" id="cargaCoche1" onClick="cargaCoche(1)" value="cargaCoche1">
+<input type="button" id="cargaCoche2" onClick="cargaCoche(2)" value="cargaCoche2">
+<input type="button" id="cargaCoche3" onClick="cargaCoche(3)" value="cargaCoche3">
+<br>
+Coche cargado:
+<br>
+Marca: <span id="marca"></span><br>
+Color: <span id="color"></span><br>
+Potencia: <span id="potencia"></span><br>
+Tipo: <span id="tipo"></span><br>
+</body>
+</html>

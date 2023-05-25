@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ejercicios</title>
+</head>
+
+<body>
+    <form name="formulario">
+    Nombre:<input type="text" name="nombre">
+    Apellidos:<input type="text" name="apellidos">
+    Edad:<input type="text" name="edad">
+    <input type="button" value="mostrar" onClick="mostrar()">
+    </form>
+<script type="text/javascript">
+function mostrar()
+{
+	alert(document.formulario.nombre.value);
+	alert(document.formulario.apellidos.value);
+	alert(document.formulario.edad.value);
+	}
+</script> 
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript, Condicionales</title>
+<script type="text/javascript">
+	var edad=prompt("Edad?");
+	var eresMujer=confirm("Eres mujer?");
+	var millonario=confirm("Eres millonaria/o?");
+	if (edad>=18 && eresMujer==true || millonario)
+	{alert("Puedes pasar!");
+	}else {alert("A tu casa!");}
+	if (edad>=18 && eresMujer)
+	{alert("Puedes pasar!");
+	}else if (millonario)
+		{
+		alert("Pasa a la zona VIP");
+			} else
+	{alert("A tu casa!");}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

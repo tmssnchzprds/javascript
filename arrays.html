@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript, for</title>
+<script type="text/javascript">
+ //PRIMERA FORMA
+ var coches=new Array();
+ coches[0]="mercedes";
+  coches[1]="audi";
+   coches[2]="volvo";
+    coches[3]="tom";
+// SEGUNDA FORMA
+	var coches=new Array ("mercedes","audi","volvo","bmv");
+//TERCERA FORMA
+var coches=["mercedes","audi", "volvo","bmv"];
+alert ("la marca del coche 3 es"+coches[3]);
+alert (coches.length);
+var indice=prompt("dime el numero de coche?");
+alert("La marca del coche es"+coches[indice]);
+
+for (var indice=0;indice<=coches.length-1;indice++)
+{
+	alert(coches[indice]);
+	}
+	document.write("<table border='1'>");
+	document.write("<tr><th>Numero</th><th>Marca</th></tr>");
+	for (var indice=0;indice<=coches.length-1;indice++)
+{
+	document.write("<tr><td>"+indice+"</td><td>"+coches[indice]+"</td></tr>");
+}
+	document.write("</table>");
+</script>
+</head>
+
+<body>
+</body>
+</html>

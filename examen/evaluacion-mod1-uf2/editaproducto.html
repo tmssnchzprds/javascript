@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Practica 2</title>
+
+
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script>
+$(document).ready(function() {
+    
+    function llegada(datos)
+    {
+        $("#nombre").html(datos.NombreProducto);
+        $("#categoria").html(datos.NombreCategoria);
+        $("#descripcion").html(datos.descripcion);
+        $("#pvp").html(datos.Pvp);
+    }
+    
+    
+    $("#boton").click(function() {
+        
+        var idProducto=$("#codigo").val();
+        $("#codigoArt").html(idProducto);
+        $.getJSON("BuscaProducto.php",{id:idProducto},llegada);
+        
+    });
+    
+    
+});
+
+</script>
+</head>
+
+<body>
+<table >
+	<thead>
+    	<tr>
+        	<th colspan="2">Datos del articulo con codigo:<span id="codigoArt"></span></th>
+        </tr>
+          
+    </thead>
+    <tbody>
+        <tr>
+        	<td>Nombre:</td>
+            <td id="nombre"></td>
+        </tr>
+        <tr>
+        	<td>Categoria:</td>
+            <td id="categoria"></td>
+        </tr>
+        <tr>
+            <td>Descripcion:</td>
+            <td id="descripcion"></td>
+        </tr>
+        <tr>
+            <td>Precio:</td>
+            <td id="pvp"></td>
+        </tr>
+        <tr>
+        	<td>Introduce codigo<input type="text" id="codigo" size="2"></td>
+            <td><input type="button"  value="Ver" id="boton"></td><br><br>
+            <td><input type="button"  value="Borrar" id="limpiar"></td>
+            
+       </tr>
+   </tbody>
+</table>
+
+
+<br>
+
+<div id="cargador">
+
+</div>
+
+
+
+</body>
+</html>

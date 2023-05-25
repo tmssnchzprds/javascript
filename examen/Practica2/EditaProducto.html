@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prueba Practica 2</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#ver").click(function(){
+		var valor = $("#codigo").val();
+		$("#vercodigo").html(" con codigo: "+valor);
+	});
+		$.getJSON("BuscaProducto.php","id="+valor,function (datos) {
+			$.each(datos,function(propiedad,valor) {
+				$("#"+propiedad).html(valor);
+			});
+		});
+});
+</script>
+</head>
+
+<body>
+<table border="1">
+	<tr>
+		<th colspan="2">Datos del articulo <span id="vercodigo"></span></th>
+    </tr>
+    <tr>
+    	<td>Nombre:</td>
+        <td><span id="NombreProducto"></span></td>
+    </tr> 
+    <tr>
+    	<td>Categoría:</td>
+        <td><span id="NombreCategoria"></span></td>
+    </tr>
+    <tr>
+    	<td>Descripción:</td>
+        <td><span id="descripcion"></span></td>
+    </tr>
+    <tr>
+    	<td>Precio:</td>
+        <td><span id="Pvp"></span></td>
+    </tr>
+    <tr>
+    	<td>Código articulo:</td>
+        <td><input type="text" name="codigoarticulo" id="codigo"><input type="button" value="ver" id="ver"></td>
+    </tr>
+</table>
+</body>
+</html>

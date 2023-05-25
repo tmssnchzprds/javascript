@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prueba Practica 1 parte 1</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jquery.validate.js"></script>
+<script type="text/javascript" src="additional-methods.js"></script>
+<script type="text/javascript" src="messages_es.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#formulario").validate({
+		rules:{
+			preciominimo:{required:true,
+			digits:true,
+			min:50000},
+			preciomaximo:{required:true,
+			digits:true,
+			max:600000},
+			habitaciones:{digits:true,
+			min:1,
+			max:6}
+		}
+	});
+});
+</script>			
+</head>
+
+<body>
+	<form name="formulario" id="formulario" action="recibe.php" method="get">
+		<table>
+ 		   	<tr>
+        		<th colspan="2">Datos de la búsqueda de inmuebles
+    	        </th>
+ 	       </tr>
+        	<tr>
+    	    	<td>Provincia:
+	            </td>
+        	    <td>
+                	<select name="provincia" class="input">
+						<option value="Badajoz">Badajoz</option>
+    					<option value="Caceres">Caceres</option>
+    				</select>
+    	        </td>
+	        </tr>
+        	<tr>
+    	    	<td>Tipologia:
+	            </td>
+            	<td>
+                	<select name="tipologia" class="input">
+						<option value="Ático">Ático</option>
+    					<option value="Adosado">Adosado</option>
+                        <option value="Duplex">Duplex</option>
+    				</select>
+        	    </td>
+    	    </tr>
+	        <tr>
+        		<td>Habitaciones:
+    	        </td>
+	            <td>
+                	<input type="text" name="habitaciones" size="1" maxlength="1" class="input">
+            	</td>
+        	</tr>
+    	    <tr>
+	        	<td>Precio mínimo:
+            	</td>
+        	    <td>
+                	<input type="text" name="preciominimo" size="10" maxlength="10" class="input">
+    	        </td>
+ 	       </tr>
+        	<tr>
+    	    	<td>Precio máximo:
+	            </td>
+        	    <td>
+                	<input type="text" name="preciomaximo" size="10" maxlength="10" class="input">
+    	        </td>
+	        </tr>
+            <tr>
+        		<td colspan="2"><input type="submit" name="buscar" value="Buscar">
+    	        </td>
+ 	       </tr>
+		</table>
+    </form>
+</body>
+</html>

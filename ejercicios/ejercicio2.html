@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ejercicios</title>
+</head>
+
+<body>
+    <form name="formulario">
+    Numero1:<input type="text" name="numero1" id="numero1">
+    Numero2:<input type="text" name="numero2" id="numero2">
+    <input type="button" value="+" onClick="sumar()">
+     <input type="button" value="-" onClick="restar()">
+     <input type="button" value="*" onClick="multiplicar()">
+     <input type="button" value="/" onClick="dividir()">
+    </form>
+<script type="text/javascript">
+
+function sumar() {
+	var num1=document.getElementById("numero1").value;
+	num1=parseInt(num1);
+	var num2=document.getElementById("numero2").value;
+	num2=parseInt(num2);
+	alert(num1+" + "+num2+" = "+(num1+num2));
+	}
+function restar() {
+		var num1=document.getElementById("numero1").value;
+	num1=parseInt(num1);
+	var num2=document.getElementById("numero2").value;
+	num2=parseInt(num2);
+	alert(num1+" - "+num2+" = "+(num1-num2));
+	}
+function multiplicar() {
+		var num1=document.getElementById("numero1").value;
+	num1=parseInt(num1);
+	var num2=document.getElementById("numero2").value;
+	num2=parseInt(num2);
+	alert(num1+" * "+num2+" = "+(num1*num2));
+	}
+function dividir() {
+		var num1=document.getElementById("numero1").value;
+	num1=parseInt(num1);
+	var num2=document.getElementById("numero2").value;
+	num2=parseInt(num2);
+	alert(num1+" / "+num2+" = "+(num1/num2));
+	}
+</script> 
+</body>
+</html>

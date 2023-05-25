@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial basico JavaScript,</title>
+<script type="text/javascript">
+function dom()
+{
+	var objetoCaja=document.getElementById("miCaja");
+alert(objetoCaja.value);
+objetoCaja.value="678910";
+objetoCaja.style="color:red;";
+var objetoCapa=document.getElementById("micapa");
+alert(objetoCapa.innerHTML);
+alert(objetoCapa.textContent);
+objCombo=document.getElementById("frutas");
+alert(objCombo.length);
+alert(objCombo.selectedIndex);
+alert(objCombo.value);
+alert(objCombo.textContent);
+
+}
+function cambiaFoto() {
+	var objCaja=document.getElementById("foto");
+	objCaja.src="../jamonbellota.jpg";
+	objCaja.width="400";
+	}
+function cambiaFoto() {
+	var objCaja=document.getElementById("foto");
+	objCaja.src="../tablet.jpg";
+	}
+</script>
+</head>
+
+<body>
+	<h1>Pruebas con el DOM</h1>
+    <form name="formulario">
+    	<input type="text" id="miCaja" name="superCaja" value="12345" size="10" maxlength="15" style="color:blue;">
+        <input type="button" onClick="dom()" value="pulsa">
+        <select name="frutas" id="frutas" onChange="fruta(this)">
+        <option value="valor1">Manzana</option>
+        <option value="valor2">Naranja</option>
+        <option value="valor3">Platano</option>
+        <option value="valor4">Pera</option>
+        </select>
+        
+    </form>
+   <div id="micapa" style="width:300px;height:200px;background-color:red;">
+   Aqui comienza la capa
+   <b>Esto es un ejemplo sencillo del DOM</b>
+   </div>
+	<img src="../tablet.jpg" id="foto" width="200" height="200" onMouseOver="cambiaFoto(this)" onMouseOut="original(this)">
+    Fruta seleccionada: <span id="valorFruta">Sin valor</span>
+    <script type="text/javascript">
+function fruta(obj)
+{
+	var spanID=document.getElementById("valorFruta");
+	var indice=obj.selectedIndex;
+	spanID.innerHTML=obj.value+" "+obj.options[indice].text;
+	}
+function dom()
+{
+	var objetoCaja=document.getElementById("miCaja");
+}
+</script>
+</body>
+</html>
